@@ -44,18 +44,6 @@ namespace NetSpeedMeter
             NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
         }
 
-        // Hide from Alt+Tab / Win+Tab switchers
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                var Params = base.CreateParams;
-                Params.ExStyle |= 0x80;
-
-                return Params;
-            }
-        }
-
         protected override void WndProc(ref Message message)
         {
             if (message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
